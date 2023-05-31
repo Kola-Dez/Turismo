@@ -16,6 +16,7 @@
 <body>
     <div class  ="head"><?php require_once 'attributes/head/head.php';?></div>
 
+    
     <div class="content"><?php require_once 'attributes/content/content.php';?></div>
 
     <div class="footer"><?php require_once 'attributes/footer/footer.php';?></div>
