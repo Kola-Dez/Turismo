@@ -7,16 +7,16 @@ body{
 .head{
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: relative;
 }
 .content{
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: relative;
 }
 .footer{
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: relative;
 }
 
