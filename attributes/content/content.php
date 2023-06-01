@@ -2,9 +2,6 @@
     require_once "config/conect.php";
     $db = new Conect();
     $select = $db->selectFun('places', 'img');
-    // echo '<pre>';
-    // print_r($_SERVER);
-    // echo '</pre>';
 ?>
 <style>
     .slider {
@@ -30,7 +27,7 @@
     <div class="slider">
         <div class="slides">
             <? foreach($select as $key){?>
-            <div class="slide"><img src="img/<?=$key?>" width="1500px" height="800px"></div>
+            <div class="slide"><img src="img/<?=$key?>" width="100%" height="800px"></div>
             <?}?>
         </div>
     </div>    

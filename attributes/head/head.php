@@ -60,8 +60,8 @@
     <head>
         <ul class="ul-1">
         <img src="../../img/Logo1.png" width="130px" class="img-1">
-            <li class="li-1"><a class="a-1" href="#">LOGIN</a></li>
-            <li class="li-1"><a class="a-1" href="#">REGISTER</a></li>
+            <li class="li-1"><a class="a-1" href="/avtorization/login/login.php">LOGIN</a></li>
+            <li class="li-1"><a class="a-1" href="/avtorization/reg/reg.php">REGISTER</a></li>
             <li class="li-1"><a class="a-1" href="#">HOME</a></li>
             <li class="li-1"><a class="a-1" href="#">CONTENT</a></li>
             <li class="li-1"><a class="a-1" href="views/about/about.php">ABOUT US</a></li>
