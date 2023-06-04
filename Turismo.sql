@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 31 2023 г., 16:49
+-- Время создания: Июн 05 2023 г., 00:13
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -40,9 +40,33 @@ CREATE TABLE `places` (
 --
 
 INSERT INTO `places` (`id`, `name`, `price`, `region`, `img`) VALUES
-(1, 'Иссык-Куль', '20000-30000', 'Иссык-Кульская', 'issik.jpg'),
-(2, 'Горы Иссыкуля', '10000-20000', 'Иссык-Кульская', 'Gors.jpg'),
-(3, 'Горы', '20000-30000', 'Иссык-Кульская', 'gori2.jpeg');
+(2, 'Горы Иссык Куля', '10000-20000', 'Иссык-Кульская', 'Gors.jpg'),
+(3, 'Горы', '20000-30000', 'Иссык-Кульская', 'gori2.jpeg'),
+(21, 'Башня Бурана', '10000-30000', 'Чуйская', 'burana2.webp'),
+(22, 'Мемориал Ата-Бейит', '20000-30000', 'Чуйская', 'Ata-beit.jpg'),
+(23, 'Пик Ленина', '10000-30000', 'Ошская', 'pik-lenina.jpg'),
+(27, 'Озеро Сары-Челек', '10000-30000', 'Джалал-Абадская', '647cfb6e3b722.jpeg'),
+(28, 'Озеро Кара-Суу', '20000-30000', 'Джалал-Абадская', '647cfbd2ec941.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
+(50, 'admin', 'admin@gmail.com', '$2y$10$Wda44NC1LJocYkyVKoMVfOg9TYMgs1wq5piWjydvMscgqzyFMrOZ2');
 
 --
 -- Индексы сохранённых таблиц
@@ -55,6 +79,12 @@ ALTER TABLE `places`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -62,7 +92,13 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT для таблицы `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
