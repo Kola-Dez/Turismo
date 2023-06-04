@@ -60,11 +60,10 @@ $current_page = $_SERVER['PHP_SELF'];
 
     <head>
         <ul class="ul-1">
-        <img src="<?if($current_page === '/avtorization/admin/admin.php'){echo '../../img/Logoa.png';}else{echo '../../img/Logo1.png';} ?>" width="130px" class="img-1">
+        <a href="/"><img src="<?if($current_page === '/avtorization/admin/admin.php'){echo '../../img/Logoa.png';}else{echo '../../img/Logo1.png';} ?>" width="130px" class="img-1"></a>
             <li class="li-1"><a class="a-1" href="/avtorization/login/login.php">LOGIN</a></li>
             <li class="li-1"><a class="a-1" href="/avtorization/reg/reg.php">REGISTER</a></li>
             <li class="li-1"><a class="a-1" href="/views/contact/contact.php">CONTACT</a></li>
             <li class="li-1"><a class="a-1" href="/views/content/content.php">CONTENT</a></li>
-            <li class="li-1"><a class="a-1" href="/">HOME</a></li>
         </ul>
     </head>
