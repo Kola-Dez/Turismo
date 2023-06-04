@@ -1,15 +1,16 @@
 <?php
-    require_once "config/conect.php";
-    $db = new Conect();
-    $select = $db->selectFun('places', 'img');
+    require_once "config/avtorization.php";
+    $db = new avtorization();
+    $select = $db->selectFun('places');
 ?>
 <style>
     .slider {
-        width: 100%;
-        height: 600px;
+        width: 1521px;
+        height: 700px;
         overflow: hidden;
         position: relative;
-        background-color: rgba(0, 0, 0, 0.299);
+        background-color: #fff;
+        margin-right: 100px;
     }
 
     .slider .slides {
@@ -26,9 +27,9 @@
 <body>
     <div class="slider">
         <div class="slides">
-            <? foreach($select as $key){?>
-            <div class="slide"><img src="img/<?=$key?>" width="100%" height="800px"></div>
-            <?}?>
+            <?php foreach($select as $key) { ?>
+                <div class="slide"><img src="img/<?= $key['img'] ?>" width="100%" height="100%"></div>
+            <?php } ?>
         </div>
     </div>    
 </body>

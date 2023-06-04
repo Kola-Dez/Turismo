@@ -35,9 +35,9 @@
     <footer>
         <p class="p-1">Контент</p>
         <ul class="ul-2">
-            <li class="li-2"><a href="#" class="a-2">Главная</a></li>
-            <li class="li-2"><a href="#" class="a-2">О нас</a></li>
-            <li class="li-2"><a href="#" class="a-2">Контакты</a></li>
+            <li class="li-2"><a href="/" class="a-2">Главная</a></li>
+            <li class="li-2"><a href="/views/content/content.php" class="a-2">О нас</a></li>
+            <li class="li-2"><a href="/views/contact/contact.php" class="a-2">Контакты</a></li>
         </ul>
     </footer>
 </body>

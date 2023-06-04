@@ -3,5 +3,15 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-
+}
+.head .user .content .footer{
+    position: relative;
+}
+@media (max-width: 576px){
+    body{
+        background-color: black;
+    }
+}
+.contentBlock{
+    margin: 10px;
 }

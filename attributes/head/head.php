@@ -1,5 +1,8 @@
+<?php session_start();
+$current_page = $_SERVER['PHP_SELF'];
+?>
 <style>
-    body{
+    *{
         margin: 0;
         padding: 0;
     }
@@ -24,7 +27,6 @@
         float: right;
     }
     .ul-1 .li-1 .a-1{
-        color: black;
         display: block;
         padding: 0 40px;
         text-transform: uppercase;
@@ -56,15 +58,13 @@
 }
 </style>
 
-<body>
     <head>
         <ul class="ul-1">
-        <img src="../../img/Logo1.png" width="130px" class="img-1">
+        <img src="<?if($current_page === '/avtorization/admin/admin.php'){echo '../../img/Logoa.png';}else{echo '../../img/Logo1.png';} ?>" width="130px" class="img-1">
             <li class="li-1"><a class="a-1" href="/avtorization/login/login.php">LOGIN</a></li>
             <li class="li-1"><a class="a-1" href="/avtorization/reg/reg.php">REGISTER</a></li>
-            <li class="li-1"><a class="a-1" href="#">HOME</a></li>
-            <li class="li-1"><a class="a-1" href="#">CONTENT</a></li>
-            <li class="li-1"><a class="a-1" href="views/about/about.php">ABOUT US</a></li>
+            <li class="li-1"><a class="a-1" href="/views/contact/contact.php">CONTACT</a></li>
+            <li class="li-1"><a class="a-1" href="/views/content/content.php">CONTENT</a></li>
+            <li class="li-1"><a class="a-1" href="/">HOME</a></li>
         </ul>
     </head>
-</body>

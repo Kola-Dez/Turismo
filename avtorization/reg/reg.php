@@ -1,20 +1,33 @@
 <?php
 session_start();
-require_once '../../config/conect.php';
-
-// Обработка отправленной формы
+require_once '../../config/avtorization.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $db = new Conect(); 
-    $db->regFun('user', $name, $email, $password);
-    // Закрытие сессии
-    session_write_close();
-    // Перенаправление пользователя
-    header("Location: ../../index.php");
-    exit;
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $password = $_POST['password'];
+        $db = new avtorization(); 
+        $dat = $db->regFun('users', $name, $email, $password);
+
+        if("1" ===  $dat){
+            echo "<h3 style='color: #fff;'>E-mail занят!</h3>     .";
+        }
+        if("2" ===  $dat){
+            echo "<h3 style='color: #fff;'>Имя занято!</h3>     .";
+        }
+        if(3 ===  $dat){
+            $db->IdCheckFun('users', $name);
+            header("Location: /index.php");
+            die();
+        }
+        session_unset();
+    }else {
+        echo "<h3 style='color: #fff;'>Email-адрес не корректный</h3>     .";
+    }
 }
+
+// Обработка отправленной формы
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="reg.css">
+  <link rel="icon" href="../../img/icon.ico" type="images/x-icon">
   <title>Turismo</title>
 </head>
 <body>
@@ -45,9 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <i></i>
             </div>
             <div class="links">
-                <a href="#">Forgot Password</a>
-                <a href="#">Register</a>
-                <a href="#">Signup</a>
+                <a href="../login/login.php">Login</a>
+                <a href="/">Home</a>
             </div>
             <input type="submit" value="Login">
         </form>

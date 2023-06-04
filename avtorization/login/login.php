@@ -1,21 +1,20 @@
 <?php
 session_start();
-require_once '../../config/conect.php';
+require_once '../../config/avtorization.php';
 
-// Подключение к базе данных
+// Подключение к базе данныхs
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    session_unset();
     $name = $_POST['name'];
     $password = $_POST['password'];
-    $db = new Conect(); 
-    $db->logFun('user', $name, $password);
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['username'] = $user['name'];
-    // header('Location: admin.php');
-    // exit;
-    // Закрытие сессии
-    // Перенаправление пользователя
-    header("Location: ../../index.php");
-    exit;
+    $db = new avtorization(); 
+    $user = $db->logFun('users', $name, $password);
+    if($user === 1){
+        header('Location: ../admin/examination.php');
+        exit;
+    }else{
+        echo "<h3 style='color: #fff;'>Не верный логин или пароль!</h3>   .";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -23,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="log.css">
+  <link rel="icon" href="../../img/icon.ico" type="images/x-icon">
   <title>Turismo</title>
 </head>
 <body>
@@ -42,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="links">
                 <a href="#">Forgot Password</a>
-                <a href="#">Register</a>
-                <a href="#">Signup</a>
+                <a href="../reg/reg.php">Register</a>
+                <a href="/">Home</a>
             </div>
             <input type="submit" value="Login">
         </form>
