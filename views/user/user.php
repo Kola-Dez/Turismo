@@ -10,6 +10,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/lol.css">
   <link rel="icon" href="../../img/icon.ico" type="images/x-icon">
+  <link rel="stylesheet" href="style.css">
   <title>Turismo</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
 
     <div class="head"><?php require_once '../../attributes/head/head.php';?></div>
 
+    <div class="contentUser"><?php require_once '../../attributes/contentUser/contentUser.php';?></div>
 
     <div class="footer"><?php require_once '../../attributes/footer/footer.php';?></div>
 </body>

@@ -41,8 +41,8 @@ if ($_SESSION['name'] !== 'admin') {
                 }
         
                 // Генерация уникального имени файла для предотвращения перезаписи файлов с одинаковыми именами
-                $newFileName = uniqid() . '.' . $fileExtension;
-        
+                
+                $newFileName = uniqid() . "_" .  $_FILES['file']['name'];
                 // Полный путь для сохранения файла
                 $targetFilePath = $targetDirectory . $newFileName;
         
@@ -89,6 +89,7 @@ if ($_SESSION['name'] !== 'admin') {
                 <th>ID</th>
                 <th>Имя</th>
                 <th>Email</th>
+                <th>img</th>
                 <th>Действия</th>
             </tr>
             <?php foreach ($allUsers as $key) { ?>
@@ -96,6 +97,7 @@ if ($_SESSION['name'] !== 'admin') {
                     <td><?= $key['id'] ?></td>
                     <td><?= $key['name'] ?></td>
                     <td><?= $key['email'] ?></td>
+                    <td><?= $key['imgUser'] ?></td>
                     <td>
                         <a class="button" href="?delete_id=<?= $key['id']; ?>&t=users" onclick="return confirm('Вы уверены, что хотите удалить пользователя?')">Удалить</a>
                     </td>
@@ -172,7 +174,7 @@ if ($_SESSION['name'] !== 'admin') {
                                 </div>
 
                                 <div>
-                                    <input type="radio" id="dewey" name="region" value="Чуйская">
+                                    <input type="radio" id="louie" name="region" value="Чуйская">
                                     <label for="Чуйская">Чуйская</label>
                                 </div>
 
@@ -207,7 +209,7 @@ if ($_SESSION['name'] !== 'admin') {
 
                             </td>
 
-                            <td><input type="submit" name="Creat" value="Добавить"></td>
+                            <td><input class="button" type="submit" name="Creat" value="Добавить"></td>
                         </tr>
                 </table>
             </form>

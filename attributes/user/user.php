@@ -1,4 +1,8 @@
-<? session_start();?>
+<? session_start();
+    if(empty($_SESSION['imgUser'])){
+        $_SESSION['imgUser'] = 'defoltUser.png';
+    }
+?>
 <style>
     body{
         margin: 0;
@@ -22,12 +26,32 @@
         text-decoration: none;
         line-height: 50px;
     }
+    .img--1{
+        margin:0 0 0 5px;
+        border-radius: 50px;
+    }
+
 </style>
 
 <body>
     <head>
         <ul class="ul-3">
-            <li class="li-3"><a class="a-3" href="<?php if($_SESSION['name'] === 'admin'){echo '/avtorization/admin/admin.php';}else{echo 'views/user/user.php';} ?>"><?=$_SESSION['name']?></a></li>
+        <li class="li-3">
+                <div class="img--1">
+                    <img class="img--1" src="/img/imgUsers/<?=$_SESSION['imgUser']?>" width="50px">
+                </div>
+            </li>
+            <li class="li-3">
+                <div class="us">
+                <a class="a-3" href="<?php if($_SESSION['name'] === 'admin'){
+                    echo '/avtorization/admin/admin.php';
+                }else{
+                    echo '/views/user/user.php';
+                } ?>">
+                        <?=$_SESSION['name']?>
+                </a>
+            </div>
+            </li>
         </ul>
     </head>
 </body>

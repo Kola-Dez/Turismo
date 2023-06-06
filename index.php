@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="user">
-    <?php require_once 'attributes/user/user.php'; ?>
+    <?php if(isset($_SESSION['name'])){ require_once 'attributes/user/user.php';} ?>
   </div>
 
   <div class="head">

@@ -4,10 +4,11 @@ require_once '../../config/avtorization.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
+    $imgUser = 'defoltUser.png';
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $password = $_POST['password'];
         $db = new avtorization(); 
-        $dat = $db->regFun('users', $name, $email, $password);
+        $dat = $db->regFun('users', $name, $email, $password, $imgUser);
 
         if("1" ===  $dat){
             echo "<h3 style='color: #fff;'>E-mail занят!</h3>     .";
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if(3 ===  $dat){
             $db->IdCheckFun('users', $name);
-            header("Location: /index.php");
+            header("Location: /");
             die();
         }
         session_unset();
