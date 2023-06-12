@@ -28,7 +28,7 @@
     <div class="slider">
         <div class="slides">
             <?php foreach($select as $key) { ?>
-                <div class="slide"><img src="img/<?= $key['img'] ?>" width="100%" height="100%"></div>
+                <div class="slide"><img src="img/<?= $key['img'] ?>" width="100%" height="1000hv"></div>
             <?php } ?>
         </div>
     </div>    
