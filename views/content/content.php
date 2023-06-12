@@ -20,7 +20,7 @@ body{
 <div class="user"><?php require_once '../../attributes/user/user.php'; ?></div>
 <div class="head"><?php require_once '../../attributes/head/head.php';?></div>
 
-<div class="contentBlock"><?php require_once '../../attributes/contentBlock/contentBlock.php'?></div>
+<div class="contentBlock"><?php require_once '../../attributes/panel/panel.php'?></div>
 
 <div class="footer"><?php require_once '../../attributes/footer/footer.php';?></div>
 </body>

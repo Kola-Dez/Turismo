@@ -120,7 +120,7 @@ width: 100%;
           <a class="a--1" href="?oblast=Баткенская">Баткенская</a>
         </li>
         <li class="li--1">
-          <a class="a--1" href="/">Все</a>
+          <a class="a--1" href="?">Все</a>
         </li>
       </ul>
     </div>
