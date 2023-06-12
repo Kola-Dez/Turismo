@@ -25,10 +25,15 @@
         text-transform: uppercase;
         text-decoration: none;
         line-height: 50px;
+        margin-top: 2px;
     }
     .img--1{
         margin:0 0 0 5px;
         border-radius: 50px;
+    }
+    .ul-3 .li-3 .a-3:hover{
+        background-color: coral;
+        color: #fff;
     }
 
 </style>

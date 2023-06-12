@@ -28,7 +28,7 @@ margin: 50px 10px 10px 10px;
 
 .panel .sidebar {
 width: 200px;
-background-color: #4255ff77;
+
 padding: 20px;
 border-radius: 40px;
 margin-left: 10px;
@@ -69,6 +69,9 @@ background-color: #bbb;
 p{
 margin-bottom:  0;
 }
+.h1s{
+  text-align: center;
+}
 h2{
 margin-top: 0;
 }
@@ -77,7 +80,7 @@ height: 60px;
 }
 .textcols{
 margin: 10px;
-width: 31%;
+width: 380px;
 display: inline-block;
 }
 .textcols-item {	
@@ -95,7 +98,7 @@ width: 100%;
     <div class="sidebar">
       <ul class="ul--1">
         <li class="li--1">
-            <h1>Область</h1>
+            <h1 class="h1s">Область</h1>
           <a class="a--1" href="?oblast=Иссык-Кульская">Иссык-Кульская</a>
         </li>
         <li class="li--1">

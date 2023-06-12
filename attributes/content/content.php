@@ -5,8 +5,8 @@
 ?>
 <style>
     .slider {
-        width: 1521px;
-        height: 700px;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         position: relative;
         background-color: #fff;

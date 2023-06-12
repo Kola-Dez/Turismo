@@ -53,13 +53,18 @@ $current_page = $_SERVER['PHP_SELF'];
         }
     }
     .img-1{
-        position: absolute;
+        position: relative;
         animation-name:AAA ;
+        float: left;
         animation-duration: 3s;
         animation-iteration-count:infinite;
         animation-direction: alternate ;
         animation-delay: 1s;
 }
+/* @media (max-width: 940px){
+    .ul-1 .li-1 .a-1{
+    }
+} */
 </style>
 
     <head>
