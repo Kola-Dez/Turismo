@@ -17,7 +17,7 @@ body{
 }
 </style>
 <body>
-<div class="user"><?php require_once '../../attributes/user/user.php'; ?></div>
+<div class="user"><?php if(isset($_SESSION['name'])){ require_once '../../attributes/user/user.php';} ?></div>
 <div class="head"><?php require_once '../../attributes/head/head.php';?></div>
 
 <div class="contentBlock"><?php require_once '../../attributes/panel/panel.php'?></div>

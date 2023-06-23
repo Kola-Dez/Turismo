@@ -3,9 +3,9 @@
     if(isset($_POST['Update'])){
         require_once "../../config/avtorization.php";
         $db = new avtorization();
-        print_r($_FILES);   
-        print_r($_SESSION);
-        print_r($_POST);
+        // print_r($_FILES);   
+        // print_r($_SESSION);
+        // print_r($_POST);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $targetDirectory = '../../img/imgUsers/'; // Директория, куда будут сохраняться загруженные файлы

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,7 @@ font-family: 'Poppins', sans-serif;
 
 </style>
 <body>
-<div class="user"><?php require_once '../../attributes/user/user.php'; ?></div>
+<div class="user"><?php if(isset($_SESSION['name'])){ require_once '../../attributes/user/user.php';} ?></div>
 <div class="head"><?php require_once '../../attributes/head/head.php';?></div>
 
     <div class="content"><b>ADMIN - </b><a href="mailto:kola.stalker.04@gmail.com">kola.stalker.04@gmail.com</a></div>

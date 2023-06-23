@@ -2,6 +2,10 @@
     if(empty($_SESSION['imgUser'])){
         $_SESSION['imgUser'] = 'defoltUser.png';
     }
+    if(isset($_GET["clear"])){
+        session_unset();
+        header('Location: /');
+    }
 ?>
 <style>
     body{
@@ -41,22 +45,23 @@
 <body>
     <head>
         <ul class="ul-3">
-        <li class="li-3">
+            <li class="li-3">
                 <div class="img--1">
                     <img class="img--1" src="/img/imgUsers/<?=$_SESSION['imgUser']?>" width="50px">
                 </div>
             </li>
             <li class="li-3">
                 <div class="us">
-                <a class="a-3" href="<?php if($_SESSION['name'] === 'admin'){
-                    echo '/avtorization/admin/admin.php';
-                }else{
-                    echo '/views/user/user.php';
-                } ?>">
-                        <?=$_SESSION['name']?>
-                </a>
-            </div>
+                    <a class="a-3" href="<?php if($_SESSION['name'] === 'admin'){
+                        echo '/avtorization/admin/admin.php';
+                    }else{
+                        echo '/views/user/user.php';
+                    } ?>">
+                            <?=$_SESSION['name']?>
+                    </a>
+                </div>
             </li>
+            <li class="li-3"><a class="a-3" href="?clear=1">LOG OUT</a></li>
         </ul>
     </head>
 </body>

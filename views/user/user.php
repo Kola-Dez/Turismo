@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style/lol.css">
+  <link rel="stylesheet" href="style/style.css">
   <link rel="icon" href="../../img/icon.ico" type="images/x-icon">
   <link rel="stylesheet" href="style.css">
   <title>Turismo</title>
