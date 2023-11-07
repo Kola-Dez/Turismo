@@ -10,6 +10,13 @@ class avtorization extends conect
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
+    public function selectOne($structureName, $id){
+        $query = "SELECT * FROM $structureName WHERE $id = `id`";
+        $stmt = self::$pdo->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
     public function selectFunNAME($structureName, $name){
         $stmt = self::$pdo->prepare("SELECT * FROM $structureName WHERE name = :name");
         $stmt->execute([':name' => $name]);

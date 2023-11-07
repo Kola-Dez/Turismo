@@ -1,13 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-html { overflow-x: hidden; }
 body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    /* overflow: hidden;    */
 }
 .head .user .content .footer{
     position: relative;
 }
 .contentBlock{
     margin: 10px;
+}
+/* Стили для вашей панели управления */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    background-color: #444;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
 }

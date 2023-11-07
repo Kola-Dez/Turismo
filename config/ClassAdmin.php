@@ -12,9 +12,26 @@ class ClassAdmin extends conect{
     }
 
     public function Delite($structureName, $id){
-        $query = "DELETE FROM $structureName WHERE id = $id";
-        $stmt = self::$pdo->prepare($query);
+
+
+        $filename = "SELECT `img` FROM $structureName WHERE `id` = $id";
+        $stmt = self::$pdo->prepare($filename);
         $stmt->execute();
+        $all = $stmt->fetch(PDO::FETCH_ASSOC);
+        $filename = '/img/'.$all['img'];
+        print_r($filename);
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $filename)) {
+            if (unlink($_SERVER['DOCUMENT_ROOT'] . $filename)) {
+                $query = "DELETE FROM $structureName WHERE id = $id";
+                $stmt = self::$pdo->prepare($query);
+                $stmt->execute();
+                echo 'Файл успешно удален.';
+            } else {
+                echo 'Ошибка при удалении файла.';
+            }
+        } else {
+            echo "Файл не существует";
+        }
     }
 
     public function UpdatePlaces($structureName, $id, $name, $price, $region, $img){

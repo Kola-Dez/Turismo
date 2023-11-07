@@ -22,6 +22,9 @@ $current_page = $_SERVER['PHP_SELF'];
         position: absolute;
         left: 0;
     }
+    .a-1{
+        color: black;
+    }
     .ul-1{
         margin: 0;
         padding: 0;
@@ -61,15 +64,15 @@ $current_page = $_SERVER['PHP_SELF'];
         animation-direction: alternate ;
         animation-delay: 1s;
 }
-/* @media (max-width: 940px){
+/* @media (max-width: 990px){
     .ul-1 .li-1 .a-1{
+
     }
 } */
 </style>
-
     <head>
         <ul class="ul-1">
-            <a href="/"><img src="<?if($current_page === '/avtorization/admin/admin.php'){echo '../../img/Logoa.png';}else{echo '../../img/Logo1.png';} ?>" width="130px" class="img-1"></a>
+            <a href="/"><img src="<?if($current_page === '/avtorization/admin/admin.php'){echo '../../imgDefolt/DefoltFoto/Logoa.png';}else{echo '../../imgDefolt/DefoltFoto/Logo1.png';} ?>" width="130px" class="img-1"></a>
             <li class="li-1"><a class="a-1" href="/avtorization/login/login.php">LOGIN</a></li>
             <li class="li-1"><a class="a-1" href="/avtorization/reg/reg.php">REGISTER</a></li>
             <li class="li-1"><a class="a-1" href="/views/contact/contact.php">CONTACT</a></li>

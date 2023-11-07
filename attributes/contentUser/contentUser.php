@@ -28,7 +28,8 @@
                 $newFileName = uniqid() . "_" .  $_FILES['file']['name'];
                 // Полный путь для сохранения файла
                 $targetFilePath = $targetDirectory . $newFileName;
-        
+                echo move_uploaded_file($fileTmpPath, $targetFilePath);
+                die();
                 // Перемещение загруженного файла в указанную директорию
                 if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
                     echo 'Файл успешно загружен: ' . $targetFilePath;
