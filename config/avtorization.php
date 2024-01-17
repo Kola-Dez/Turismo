@@ -24,7 +24,7 @@ class avtorization extends conect
         return $user;
     }
 
-    public function regFun($structureName, $name, $email, $password, $imgUser)
+    public function regFun($structureName, $name, $email, $password, $img)
     {
         // Проверка, существует ли пользователь с таким же именем
         $query = self::$pdo->prepare("SELECT COUNT(*) FROM $structureName WHERE email = :email");
@@ -43,10 +43,10 @@ class avtorization extends conect
                 return "2";
             } else { 
                 // Вставка нового пользователя в базу данных
-                $query = self::$pdo->prepare("INSERT INTO $structureName (name, email, password, imgUser) VALUES (:name, :email, :password, :imgUser)");
+                $query = self::$pdo->prepare("INSERT INTO $structureName (name, email, password, img) VALUES (:name, :email, :password, :img)");
                 $query->bindValue(':name', $name);
                 $query->bindValue(':email', $email);
-                $query->bindValue(':imgUser', $imgUser);
+                $query->bindValue(':img', $img);
                 $query->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
                 $query->execute();
                 return 3;
@@ -61,7 +61,7 @@ class avtorization extends conect
             // Аутентификация прошла успешно, устанавливаем сессию
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
-            $_SESSION['imgUser'] = $user['imgUser'];
+            $_SESSION['img'] = $user['img'];
             return 1;
         } else {
             return 2;
@@ -75,9 +75,10 @@ class avtorization extends conect
         $_SESSION['name'] = $user['name'];
     }
     public function UpdateUser($structureName, $id, $name, $imgUser){
-        $query = "UPDATE `$structureName` SET `name`='$name', `imgUser`='$imgUser' WHERE `id`='$id'";
+        $query = "UPDATE `$structureName` SET `name`='$name', `img`='$imgUser' WHERE `id`='$id'";
         self::$pdo->query($query);
     }
+    
   
 }
 ?>

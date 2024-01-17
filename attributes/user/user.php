@@ -1,6 +1,6 @@
 <? session_start();
-    if(empty($_SESSION['imgUser'])){
-        $_SESSION['imgUser'] = 'defoltUser.png';
+    if(empty($_SESSION['img'])){
+        $_SESSION['img'] = 'Defolt.png';
     }
     if(isset($_GET["clear"])){
         session_unset();
@@ -47,7 +47,7 @@
         <ul class="ul-3">
             <li class="li-3">
                 <div class="img--1">
-                    <img class="img--1" src="/img/imgUsers/<?=$_SESSION['imgUser']?>" width="50px">
+                    <img class="img--1" src="imgDefolt/imgUsers/<?=$_SESSION['img']?>" width="50px" height="50px">
                 </div>
             </li>
             <li class="li-3">

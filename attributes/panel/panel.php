@@ -128,7 +128,7 @@ width: 100%;
                       <a style="color: inherit;" href="/views/content/content.php?<?= $key['id']?>">
                               <div class="textcols"  id="<?= $key['region']?>">
                                 <div class="textcols-item">
-                                  <img class="imgs" src="../../img/<?=$key['img']?>" width="200px" height="300px">
+                                  <img class="imgs" src="../../img/<?=$key['img']?>" width="200px" height="250px">
                                 </div>
                               <div class="textcols-item">
                                   <h1><?=$key['name']?></h1>

@@ -4,11 +4,11 @@ require_once '../../config/avtorization.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $imgUser = 'defoltUser.png';
+    $img = 'Defolt.png';
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $password = $_POST['password'];
         $db = new avtorization(); 
-        $dat = $db->regFun('users', $name, $email, $password, $imgUser);
+        $dat = $db->regFun('users', $name, $email, $password, $img);
 
         if("1" ===  $dat){
             echo "<h3 style='color: #fff;'>E-mail занят!</h3>     .";

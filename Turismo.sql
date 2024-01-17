@@ -58,6 +58,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `img` varchar(500) NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -65,8 +66,8 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(50, 'admin', 'admin@gmail.com', '$2y$10$Wda44NC1LJocYkyVKoMVfOg9TYMgs1wq5piWjydvMscgqzyFMrOZ2');
+INSERT INTO `users` (`id`, `name`, `email`, `img` , `password`) VALUES
+(1, 'admin', 'admin@gmail.com', 'Defolt.png', '$2y$10$Wda44NC1LJocYkyVKoMVfOg9TYMgs1wq5piWjydvMscgqzyFMrOZ2');
 
 --
 -- Индексы сохранённых таблиц

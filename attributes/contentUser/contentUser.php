@@ -1,59 +1,61 @@
-<? session_start(); ?>
 <?php
-    if(isset($_POST['Update'])){
-        require_once "../../config/avtorization.php";
-        $db = new avtorization();
-        // print_r($_FILES);   
-        // print_r($_SESSION);
-        // print_r($_POST);
+session_start();
+require_once "../../config/avtorization.php";
+if(empty($_SESSION['img'])){
+    $_SESSION['img'] = 'Defolt.png';
+}
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $targetDirectory = '../../img/imgUsers/'; // Директория, куда будут сохраняться загруженные файлы
-        
-            // Проверка наличия ошибок при загрузке файла
-            if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
-                $fileName = $_FILES['file']['name']; // Имя файла
-                $fileTmpPath = $_FILES['file']['tmp_name']; // Временный путь файла
-        
-                // Проверка расширения файла
-                $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-                $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-                if (!in_array($fileExtension, $allowedExtensions)) {
-                    echo 'Ошибка: Разрешены только файлы с расширениями JPG, JPEG, PNG, GIF и WEBP.';
-                    exit;
-                }
-        
-                // Генерация уникального имени файла для предотвращения перезаписи файлов с одинаковыми именами
-                
-                $newFileName = uniqid() . "_" .  $_FILES['file']['name'];
-                // Полный путь для сохранения файла
-                $targetFilePath = $targetDirectory . $newFileName;
-                echo move_uploaded_file($fileTmpPath, $targetFilePath);
-                die();
-                // Перемещение загруженного файла в указанную директорию
-                if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
-                    echo 'Файл успешно загружен: ' . $targetFilePath;
-        
-                    $db->UpdateUser('users', $_SESSION['user_id'], $_POST['name'], $newFileName);
-                    $newUser = $db->selectFunNAME('users', $_POST['name']);
-                    session_unset();
-                    $_SESSION['user_id'] = $newUser['id'];
-                    $_SESSION['name'] = $newUser['name'];
-                    $_SESSION['imgUser'] = $newUser['imgUser'];
-                    header('Location: /');
-                    exit;
-                } else {
-                    echo 'Ошибка при загрузке файла1.';
-                    exit;
-                }
-            } else {
-                echo 'Ошибка при загрузке файла2.';
-                print_r($_FILES);   
+
+if (isset($_POST['Update'])) {
+    $db = new avtorization();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $targetDirectory = '../../imgDefolt/imgUsers/'; // Directory where uploaded files will be saved
+
+        // Check for errors during file upload
+        if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+            $fileName = $_FILES['file']['name']; // Original file name
+            $fileTmpPath = $_FILES['file']['tmp_name']; // Temporary file path
+
+            // Check file extension
+            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                echo 'Ошибка: Разрешены только файлы с расширениями JPG, JPEG, PNG, GIF и WEBP.';
                 exit;
             }
+
+            // Generate a unique file name to prevent overwriting
+            $newFileName = uniqid() . "_" . $fileName;
+            // Full path for saving the file
+            $targetFilePath = $targetDirectory . $newFileName;
+
+            // Move the uploaded file to the target directory
+            if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
+                echo 'Файл успешно загружен: ' . $targetFilePath;
+
+                // Update user information in the database
+                $db->UpdateUser('users', $_SESSION['user_id'], $_POST['name'], $newFileName);
+                $newUser = $db->selectFunNAME('users', $_POST['name']);
+                session_unset();
+                $_SESSION['user_id'] = $newUser['id'];
+                $_SESSION['name'] = $newUser['name'];
+                $_SESSION['img'] = $newUser['img'];
+                header('Location: /');
+                exit;
+            } else {
+                echo 'Ошибка при загрузке файла.';
+                exit;
+            }
+        } else {
+            echo 'Ошибка при загрузке файла2.';
+            print_r($_FILES);
+            exit;
         }
     }
+}
 ?>
+
 <style>
 .all{
     height:500px;
@@ -107,7 +109,7 @@ input{
     <div class="all">
         <div class="content-Users">
             <? if(empty($_GET['update'])){ ?>
-                <div class="AlluserIMG"><img src="/img/imgUsers/<?=$_SESSION['imgUser']?>" width="100px"></div>
+                <div class="AlluserIMG"><img src="../../imgDefolt/imgUsers/<?=$_SESSION['img']?>" width="100px"></div>
                 <div class="Alluser"><?= $_SESSION['name'] ?></div>
                 <div class="update"><a class="button-a" href="?update=1">Редактировать</a></div>
             <? } else if(isset($_GET['update'])){ ?>
